@@ -37,17 +37,17 @@ public class CategoryController extends HttpServlet {
                 if (url.contains("/admin/categories")){
                         List<Category> list = categoryService.findAll();
                         req.setAttribute("listcate", list);
-                        req.getRequestDispatcher("/view/admin/category-list.jsp").forward(req, resp);
+                        req.getRequestDispatcher("/view/admin/category/category-list.jsp").forward(req, resp);
                 }
                 else if (url.contains("/admin/category/add")){
-                        req.getRequestDispatcher("/view/admin/category-add.jsp").forward(req, resp);
+                        req.getRequestDispatcher("/view/admin/category/category-add.jsp").forward(req, resp);
                 }
                 else if (url.contains("edit")){
                         int id = Integer.parseInt(req.getParameter("id"));
                         Category cateModel = categoryService.findById(id);
 
                         req.setAttribute("cate", cateModel);
-                        req.getRequestDispatcher("/view/admin/category-edit.jsp").forward(req, resp);
+                        req.getRequestDispatcher("/view/admin/category/category-edit.jsp").forward(req, resp);
                 }
                 else if (url.contains("delete")){
                         doPost(req, resp);
